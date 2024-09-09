@@ -406,6 +406,12 @@ const DropdownComponent: <T>(
 
     const onSelect = useCallback(
       (item: any) => {
+        // If the option doesn't have a value
+        // do nothing
+        if (!item.value) {
+          return;
+        }
+
         if (confirmSelectItem && onConfirmSelectItem) {
           return onConfirmSelectItem(item);
         }
